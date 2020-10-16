@@ -1,1 +1,19 @@
+import bs4
+from urllib.request import urlopen as uReq
+from bs4 import BeautifulSoup as soup
 
+bitcoin_url = "https://www.coindesk.com/price/bitcoin"
+
+#Oppening the page and grabbing the page
+u_client = uReq(bitcoin_url)
+
+#Off loads the contents into a variable 
+page_html = u_client.read()
+
+#Closes it
+u_client.close()
+
+#HTML parsing
+page_soup = soup(page_html, "html.parser")
+
+page_soup.h1
